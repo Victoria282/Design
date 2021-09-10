@@ -1,6 +1,17 @@
 package com.example.viewcomponents.Model
 
-class Model {
+class Model(idTicket: Int,
+            departureTime: String,
+            arrivalTime: String,
+            sendingPlace: String,
+            destinationPlace: String,
+            flightNumber: String,
+            flightTime: String,
+            flightDate: String
+            ) {
+
+    // id Билета
+    val idTicket: Int = 0
     // время вылета
     val departureTime: String = ""
     // время прилета
@@ -13,4 +24,6 @@ class Model {
     val flightNumber: String = ""
     // время полета
     val flightTime: String = ""
+    // дата
+    val flightDate: String = ""
 }

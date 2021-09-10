@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ViewComponents</string>
     <string name="tittle">Hong Kong to San Francisco</string>
+    <string name="san_francisco_international_airport">San Francisco International airport</string>
+    <string name="jul_18">Jul 18</string>
 </resources>
