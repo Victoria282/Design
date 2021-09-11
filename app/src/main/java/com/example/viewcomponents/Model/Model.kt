@@ -15,7 +15,7 @@ class Model(idTicket: Int,
     // время вылета
     val departureTime: String = ""
     // время прилета
-    val arrivalTime: String = ""
+    var arrivalTime: String = ""
     // место отправки
     val sendingPlace: String = ""
     // место назначения

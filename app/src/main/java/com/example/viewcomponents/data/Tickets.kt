@@ -2,7 +2,7 @@ package com.example.viewcomponents.data
 
 import com.example.viewcomponents.Model.Model
 
-val Tickets = listOf(
+public val Tickets = listOf(
         Model(
                 idTicket = 0,
                 departureTime = "10:00",
