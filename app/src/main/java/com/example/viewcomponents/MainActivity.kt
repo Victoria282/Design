@@ -1,38 +1,28 @@
 package com.example.viewcomponents
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Display
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.viewcomponents.Adapter.Adapter
-import com.example.viewcomponents.Model.Model
-import com.example.viewcomponents.data.Tickets
+import com.example.viewcomponents.adapter.TicketAdapter
+import com.example.viewcomponents.databinding.ActivityMainBinding
+import com.example.viewcomponents.model.creator.TicketCreator
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    private val fakeTickets = TicketCreator.create()
+    private val ticketAdapter = TicketAdapter(fakeTickets)
 
-        // инициализация recycler
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = Adapter(fillList())
-
-       /*
-        ТЕСТИМ:
-        // Вывод один -> com.example.viewcomponents.Model.Model@8a07693
-        println(Tickets[0].destinationPlace)
-        println(Tickets[0])
-        println(Tickets.first())
-        println((Tickets.component5()))
-        println(Tickets)*/
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        initRecycler()
+    }
 
-    // НЕ работает.. ?!
-    // Отправка списка билетов
-    private fun fillList():List<Model> {
-        return Tickets
+    private fun initRecycler() = with(binding) {
+        recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+        recyclerView.adapter = ticketAdapter
     }
 }
